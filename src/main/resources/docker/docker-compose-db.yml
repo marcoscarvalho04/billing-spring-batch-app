@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  billing-information-dev:
+    container_name: "billing-information-dev"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - POSTGRES_PASSWORD=zXBR5xBU8aYQ9J90ZkbbXq8
+      - POSTGRES_USER=postgres
+      - TZ=GMT
+    ports:
+      - "5433:5432"
+    networks:
+      - billing-information-dev
+    volumes:
+      - /var/lib/postgresql/data
+networks:
+  billing-information-dev:
+    driver: bridge
+    name: billing-information-dev
